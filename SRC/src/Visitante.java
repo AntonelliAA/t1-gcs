@@ -1,4 +1,4 @@
-public abstract class visitante {
+public abstract class Visitante {
 
 	private int Nome;
 

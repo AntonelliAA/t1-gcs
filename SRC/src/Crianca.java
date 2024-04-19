@@ -1,4 +1,4 @@
-public class Crianca extends visitante {
+public class Crianca extends Visitante {
 
 	private int Nome_responsavel;
 

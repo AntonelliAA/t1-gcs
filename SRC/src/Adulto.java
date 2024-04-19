@@ -1,4 +1,4 @@
-public class Adulto extends visitante {
+public class Adulto extends Visitante {
 
 	private int telefone;
 
