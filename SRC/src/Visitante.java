@@ -15,6 +15,9 @@ public abstract class Visitante {
 	/**
 	 * calcula a idade baseado no ano de nascimento
 	 */
+	public void visitar(Atracao a){
+		atracoes_visitadas.add(a); //adicionar a atracao na lista de visitadas
+	}
 	public int GetIdade() {
 		return 2024 - Ano_nascimento; //calculo temporario de idade }
 	}
