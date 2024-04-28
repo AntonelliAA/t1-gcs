@@ -11,7 +11,8 @@ public abstract class Visitante {
 	public void visitante(int Nome, int ano) {
 
 	}
-
+	public abstract void definirInformacoesEspecificas();
+	public abstract void imprimirInformacoes();
 	/**
 	 * calcula a idade baseado no ano de nascimento
 	 */

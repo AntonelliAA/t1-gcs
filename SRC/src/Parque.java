@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Parque {
 
@@ -11,41 +12,38 @@ public class Parque {
 	public void Registra_atracoes() {
 
 	}
-	public void registraVisitante(){
-		
-	}
 
-	public void cadastrarVisitante(Visitante visitante, int tipo, int telefone, int nomeResponsavel, String codigoIngresso, int telefoneResponsavel) {
+	public void cadastrarVisitante() {
 		if (visitantes == null) {
 			visitantes = new ArrayList<>();
 		}
 
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Digite o tipo de visitante (1 para Adulto, 2 para Criança): ");
+		int tipo = scanner.nextInt();
+		scanner.nextLine();
+
+		Visitante novoVisitante = null;
 		switch (tipo) {
 			case 1: // Adulto
-				if (visitante instanceof Adulto) {
-					Adulto adulto = (Adulto) visitante;
-					adulto.setTelefone(telefone);
-					visitantes.add(adulto);
-				} else {
-					System.out.println("Tipo de visitante inválido.");
-				}
+				novoVisitante = new Adulto();
 				break;
 			case 2: // Criança
-				if (visitante instanceof Crianca) {
-					Crianca crianca = (Crianca) visitante;
-					crianca.setNome_responsavel(nomeResponsavel);
-					crianca.setCodigo_ingresso(codigoIngresso);
-					crianca.setTelefone_Responsavel(telefoneResponsavel);
-					visitantes.add(crianca);
-				} else {
-					System.out.println("Tipo de visitante inválido.");
-				}
+				novoVisitante = new Crianca();
 				break;
 			default:
 				System.out.println("Tipo de visitante inválido.");
-				break;
+				return;
 		}
+
+		// Chamando o método para definir informações específicas do visitante
+		novoVisitante.definirInformacoesEspecificas();
+
+		// Adicionando o novo visitante à lista
+		visitantes.add(novoVisitante);
 	}
+
+
 
 	public void listarVisitantes() {
 		if (visitantes == null || visitantes.isEmpty()) {
@@ -53,7 +51,8 @@ public class Parque {
 		} else {
 			System.out.println("Visitantes cadastrados:");
 			for (Visitante visitante : visitantes) {
-				System.out.println(visitante);
+				System.out.println("==========================================");
+				visitante.imprimirInformacoes();
 			}
 		}
 	}
