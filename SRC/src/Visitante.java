@@ -8,6 +8,8 @@ public abstract class Visitante {
 
 	private ArrayList<Atracao> atracoes_visitadas;
 
+	private boolean temIngresso = false;
+
 	public void visitante(int Nome, int ano) {
 
 	}
@@ -21,4 +23,12 @@ public abstract class Visitante {
 
 	public abstract double CalculaPreco();
 
+
+	public boolean isTemIngresso() {
+		return temIngresso;
+	}
+
+	public void setTemIngresso(boolean temIngresso) {
+		this.temIngresso = temIngresso;
+	}
 }
