@@ -39,8 +39,8 @@ public class Parque {
 		atracoesPadrao();
 	}
 
-	public void Registra_visitante() {
-	//TODO adicionar diferenciação para adulto e criança, adicionando os parametros adicionais
+	public void adicionarVisitante(Visitante visitante) {
+	visitantes.add(visitante);
 	}
 	public void Registra_atracoes(Atracao a) {
 		atracoes.add(a);
