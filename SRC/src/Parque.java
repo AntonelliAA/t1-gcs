@@ -13,8 +13,18 @@ public class Parque {
 
 	}
 
+	//TODO Criar método de pesquisa por sequencial
+	public Visitante pesquisaVisitanteIngresso(int seq){
+		return null;
+	}
+
+	//TODO Criar método de pesquisa por sequencial
+	public Visitante pesquisaVisitanteNome(String nome){
+		return null;
+	}
+
 	public void emitirIngresso (Visitante v) {
-		if (v.isTemIngresso() == false && ingressosPorDia > 0) {
+		if (!v.isTemIngresso() && ingressosPorDia > 0) {
 			v.setTemIngresso(true);
 			ingressosPorDia = ingressosPorDia - 1;
 		} else {
