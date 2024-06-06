@@ -1,10 +1,13 @@
+import lombok.Data;
+
 import java.util.ArrayList;
 
+@Data
 public abstract class Visitante {
 
-	private int Nome;
+	private String nome;
 
-	private int Ano_nascimento;
+	private int ano_nascimento;
 
 	private Ingresso ingresso;
 
@@ -20,7 +23,7 @@ public abstract class Visitante {
 	 * calcula a idade baseado no ano de nascimento
 	 */
 	public int GetIdade() {
-		return 2024 - Ano_nascimento; //calculo temporario de idade }
+		return 2024 - ano_nascimento; //calculo temporario de idade }
 	}
 
 	public abstract double CalculaPreco();

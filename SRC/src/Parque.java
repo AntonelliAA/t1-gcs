@@ -42,16 +42,23 @@ public class Parque {
 
 	//TODO Criar método de pesquisa por sequencial
 	public Visitante pesquisaVisitanteIngresso(int seq){
-		return null;
+		return visitantes.get(seq - 1);
 	}
 
 	//TODO Criar método de pesquisa por sequencial
 	public Visitante pesquisaVisitanteNome(String nome){
+		for (Visitante v:
+				visitantes) {
+			if (v.getNome().equals(nome)){
+				return v;
+			}
+		}
+		System.out.println();
 		return null;
 	}
 
 	public void emitirIngresso (Visitante v) {
-		if (!v.isTemIngresso() && ingressosPorDia > 0) {
+		if (!v.isTemIngresso() && lastSeqIngresso < ingressosPorDia) {
 			v.setTemIngresso(true);
 			ingressosPorDia = ingressosPorDia - 1;
 		} else {
