@@ -3,9 +3,8 @@ class Crianca extends Visitante {
 	private String telefoneResponsavel;
 	private String codigoIngresso;
 
-	public Crianca(String nome, int anoNascimento, String telefone, String nomeResponsavel,
-			String telefoneResponsavel) {
-		super(nome, anoNascimento, telefone);
+	public Crianca(String nome, int anoNascimento, String nomeResponsavel, String telefoneResponsavel) {
+		super(nome, anoNascimento, telefoneResponsavel);
 		this.nomeResponsavel = nomeResponsavel;
 		this.telefoneResponsavel = telefoneResponsavel;
 	}
@@ -31,9 +30,17 @@ class Crianca extends Visitante {
 		return "Criança{" +
 				"nome='" + getNome() + '\'' +
 				", anoNascimento=" + getAnoNascimento() +
-				", telefone='" + getTelefone() + '\'' +
 				", nomeResponsavel='" + nomeResponsavel + '\'' +
 				", telefoneResponsavel='" + telefoneResponsavel + '\'' +
 				'}';
 	}
+
+	private int getAnoNascimento() {
+        return 0;
+    }
+
+	private String getNome() {
+		return nomeResponsavel;
+	}
+
 }

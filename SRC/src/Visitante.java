@@ -1,8 +1,6 @@
-import lombok.Data;
 
 import java.util.ArrayList;
 
-@Data
 public abstract class Visitante {
 
 	private String nome;
