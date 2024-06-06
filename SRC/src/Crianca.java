@@ -1,13 +1,46 @@
-public class Crianca extends Visitante {
+class Crianca extends Visitante {
+	private String nomeResponsavel;
+	private String telefoneResponsavel;
+	private String codigoIngresso;
 
-	private int Nome_responsavel;
+	public Crianca(String nome, int anoNascimento, String nomeResponsavel, String telefoneResponsavel) {
+		super(nome, anoNascimento, telefoneResponsavel);
+		this.nomeResponsavel = nomeResponsavel;
+		this.telefoneResponsavel = telefoneResponsavel;
+	}
 
-	private String Codigo_ingresso;
+	public String getCodigoIngresso() {
+		return codigoIngresso;
+	}
 
-	private int Telefone_Responsavel;
+	public void setCodigoIngresso(String codigoIngresso) {
+		this.codigoIngresso = codigoIngresso;
+	}
 
-	public double CalculaPreco() {
-		return 0;
+	public String getNomeResponsavel() {
+		return nomeResponsavel;
+	}
+
+	public String getTelefoneResponsavel() {
+		return telefoneResponsavel;
+	}
+
+	@Override
+	public String toString() {
+		return "Criança{" +
+				"nome='" + getNome() + '\'' +
+				", anoNascimento=" + getAnoNascimento() +
+				", nomeResponsavel='" + nomeResponsavel + '\'' +
+				", telefoneResponsavel='" + telefoneResponsavel + '\'' +
+				'}';
+	}
+
+	public int getAnoNascimento() {
+        return 0;
+    }
+
+	public String getNome() {
+		return nomeResponsavel;
 	}
 
 }
