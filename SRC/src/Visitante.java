@@ -6,6 +6,8 @@ public abstract class Visitante {
 
 	private int Ano_nascimento;
 
+	private Ingresso ingresso;
+
 	private ArrayList<Atracao> atracoes_visitadas;
 
 	private boolean temIngresso = false;
