@@ -4,15 +4,33 @@ public class Parque {
 
 	private ArrayList <Visitante> visitantes;
 	private ArrayList <Atracao> atracoes;
+	private ArrayList <Dia> dias;
 	private boolean isClosed;
 	private int lastSeqIngresso;
 	private int ingressosPorDia;
+	private class Dia {
+		private int mes;
+		private int dia;
+		private int ingCrianca;
+		private int ingAdulto;
+		private double valorTotal;
+
+		Dia(int mes, int dia){
+			this.mes = mes;
+			this.dia = dia;
+		}
+		private void calculaValorTotal() {
+			valorTotal += (ingCrianca * 80.0) + (ingAdulto * 100.0);
+		}
+	}
+
 
 	public Parque(int ingressosPorDia){
 		this.ingressosPorDia = ingressosPorDia;
 		lastSeqIngresso = 0;
 		visitantes = new ArrayList<>();
 		atracoes = new ArrayList<>();
+		dias = new ArrayList<>();
 		isClosed = false;
 		atracoesPadrao();
 	}
@@ -66,13 +84,14 @@ public class Parque {
 		}
 	}
 
-	//TODO Criar método de fechamento de parque
+	//TODO Criar método de fechamento de parque(executar o calculo de valor total no dia e impedir novos ingressos) f6
 	public void fechaDia(){
 
 	}
 
-	//TODO Criar método para abrir o parque
+	//TODO Criar método para abrir o parque (executar lógica para permitir registro de ingressos neste dia) f6
 	public void abreDia(){
-
+		Dia dia = new Dia(0,0);
+		dias.add(dia);
 	}
 }
