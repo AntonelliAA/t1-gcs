@@ -23,8 +23,6 @@ public abstract class Visitante {
 		this.telefone = telefone;
 	}
 
-	public abstract double CalculaPreco();
-
 	public boolean isTemIngresso() {
 		return temIngresso;
 	}
