@@ -4,7 +4,17 @@ public class Parque {
 
 	private ArrayList <Visitante> visitantes;
 	private ArrayList <Atracao> atracoes;
-	private int ingressosPorDia = 500;
+	private boolean isClosed;
+	private int lastSeqIngresso;
+	private int ingressosPorDia;
+
+	public Parque(int ingressosPorDia){
+		this.ingressosPorDia = ingressosPorDia;
+		lastSeqIngresso = 0;
+		visitantes = new ArrayList<>();
+		atracoes = new ArrayList<>();
+		isClosed = false;
+	}
 
 	public void Registra_visitante() {
 	//TODO adicionar diferenciação para adulto e criança, adicionando os parametros adicionais
@@ -32,5 +42,13 @@ public class Parque {
 		}
 	}
 
+	//TODO Criar método de fechamento de parque
+	public void fechaDia(){
 
+	}
+
+	//TODO Criar método para abrir o parque
+	public void abreDia(){
+
+	}
 }
