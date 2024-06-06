@@ -37,4 +37,12 @@ public abstract class Visitante {
 				", telefone='" + telefone + '\'' +
 				'}';
 	}
+
+	public int getAnoNascimento() {
+		return anoNascimento;
+	}
+
+	public Object getNome() {
+		return nome;
+	}
 }
