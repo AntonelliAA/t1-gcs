@@ -20,9 +20,16 @@ public abstract class Visitante {
 		this.anoNascimento = anoNascimento;
 		this.telefone = telefone;
 	}
+	public void visitar(Atracao a){
+		atracoes_visitadas.add(a); //adicionar a atracao na lista de visitadas
+	}
 
-	public boolean isTemIngresso() {
-		return temIngresso;
+	
+	public int GetIdade() {
+		return 2024 - Ano_nascimento;
+    /**
+	 * calcula a idade baseado no ano de nascimento
+	 */
 	}
 
 	public void setTemIngresso(boolean temIngresso) {
@@ -48,4 +55,8 @@ public abstract class Visitante {
 
 	public abstract void definirInformacoesEspecificas();
 	public abstract void imprimirInformacoes();
+
+	public boolean isTemIngresso() {
+        return false;
+    }
 }
