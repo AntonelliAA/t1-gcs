@@ -6,6 +6,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Parque app = new Parque(500);
+        Sistema sistema = new Sistema(app);
+        sistema.exibirMenu();
         System.out.println();
         scan.close();
     }

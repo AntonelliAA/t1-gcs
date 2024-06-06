@@ -35,11 +35,11 @@ class Crianca extends Visitante {
 				'}';
 	}
 
-	private int getAnoNascimento() {
+	public int getAnoNascimento() {
         return 0;
     }
 
-	private String getNome() {
+	public String getNome() {
 		return nomeResponsavel;
 	}
 
