@@ -17,10 +17,12 @@ Este é um projeto em Java para gerenciamento de um parque de diversões. O sist
 O projeto está estruturado nas seguintes classes:
 
 - **Visitante**: Classe abstrata que representa um visitante do parque.
+- **Adulto**: Classe que herda de Visitante e representa um adulto.
 - **Criança**: Classe que herda de Visitante e representa uma criança.
 - **Ingresso**: Classe que representa um ingresso do parque.
 - **Atracao**: Classe que representa uma atração do parque.
-- **ParqueDiversoes**: Classe principal que contém o menu e gerencia as operações do parque.
+- **Parque**: Classe que representa o parque.
+- **Main**: Classe principal que contém o menu e gerencia as operações do parque.
 
 ## Como Executar
 
