@@ -45,4 +45,7 @@ public abstract class Visitante {
 	public Object getNome() {
 		return nome;
 	}
+
+	public abstract void definirInformacoesEspecificas();
+	public abstract void imprimirInformacoes();
 }
