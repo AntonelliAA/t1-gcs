@@ -26,5 +26,5 @@ O projeto está estruturado nas seguintes classes:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/parque-de-diversoes.git
+   git clone https://github.com/AntonelliAA/t1-gcs.git
    ```
