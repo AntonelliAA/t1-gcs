@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.YearMonth;
 
 public class Parque {
 
 	private ArrayList <Visitante> visitantes;
 	private ArrayList <Atracao> atracoes;
+	private ArrayList<Ingresso> ingressos;
 	private ArrayList <Dia> dias;
 	private boolean isClosed;
 	private int lastSeqIngresso;
@@ -30,6 +33,7 @@ public class Parque {
 		lastSeqIngresso = 0;
 		visitantes = new ArrayList<>();
 		atracoes = new ArrayList<>();
+		ingressos = new ArrayList<>();
 		dias = new ArrayList<>();
 		isClosed = false;
 		atracoesPadrao();
@@ -77,11 +81,27 @@ public class Parque {
 
 	public void emitirIngresso (Visitante v) {
 		if (!v.isTemIngresso() && lastSeqIngresso < ingressosPorDia) {
+			String idIngresso = LocalDate.now().toString() + " seq " + (lastSeqIngresso + 1);
+			Ingresso ingresso = new Ingresso(idIngresso, v);
 			v.setTemIngresso(true);
+			ingressos.add(ingresso);
 			ingressosPorDia = ingressosPorDia - 1;
 		} else {
 			System.out.println("ERRO! Não foi possivel emitir o ingresso.");
 		}
+	}
+
+
+	public double calcularFaturamento(int mes, int ano) {
+		double faturamento = 0;
+		YearMonth yearMonth = YearMonth.of(ano, mes);
+		for (Ingresso ingresso : ingressos) {
+			LocalDate dataIngresso = ingresso.getData();
+			if (YearMonth.from(dataIngresso).equals(yearMonth)) {
+				faturamento += ingresso.getPreco();
+			}
+		}
+		return faturamento;
 	}
 
 	//TODO Criar método de fechamento de parque(executar o calculo de valor total no dia e impedir novos ingressos) f6
