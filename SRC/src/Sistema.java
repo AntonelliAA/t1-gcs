@@ -70,7 +70,13 @@ public class Sistema {
     }
 
     private void consultarFaturamento() {
-        // Implementar a consulta de faturamento
+        System.out.print("Digite o mês para consulta do faturamento (1-12): ");
+        int mes = scanner.nextInt();
+        System.out.print("Digite o ano para consulta do faturamento: ");
+        int ano = scanner.nextInt();
+
+        double faturamento = parque.calcularFaturamento(mes, ano);
+        System.out.println("Faturamento do mês " + mes + "/" + ano + ": R$ " + faturamento);
     }
 
     private void consultarVisitasPorData() {
