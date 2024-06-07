@@ -6,11 +6,7 @@ class Crianca extends Visitante {
 
 	private String nome;
 
-	public Crianca(String nome, int anoNascimento, String nomeResponsavel, String telefoneResponsavel) {
-		super(nome, anoNascimento, telefoneResponsavel);
-		this.nomeResponsavel = nomeResponsavel;
-		this.telefoneResponsavel = telefoneResponsavel;
-	}
+
 
 	public String getCodigoIngresso() {
 		return codigoIngresso;
@@ -52,7 +48,7 @@ class Crianca extends Visitante {
 
 
 	public void imprimirInformacoes() {
-		System.out.println("Nome da criança" + nome);
+		System.out.println("Nome da criança: " + nome);
 		System.out.println("Nome do responsável: " + nomeResponsavel);
 		System.out.println("Código do ingresso: " + codigoIngresso);
 		System.out.println("Telefone do responsável: " + telefoneResponsavel);
