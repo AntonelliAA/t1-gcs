@@ -18,8 +18,6 @@ public class Adulto extends Visitante {
 		this.nome = scanner.nextLine();
 		System.out.println("Digite o telefone: ");
 		this.telefone = scanner.nextLine();
-		System.out.println("Digite o código do ingresso: ");
-		this.codigoIngresso = scanner.nextLine();
 	}
 
 	@Override
