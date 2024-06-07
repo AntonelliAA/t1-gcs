@@ -1,18 +1,44 @@
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Sistema {
     private Parque parque;
     private Scanner scanner;
+    private boolean novoDia = false;
 
     public Sistema(Parque parque) {
         this.parque = parque;
         this.scanner = new Scanner(System.in);
     }
 
+    public boolean novoDiaComecou() {
+        if (this.novoDia == false) {
+            System.out.println("Voce deve iniciar o dia para poder usar essa opçao!");
+            return false;
+        }
+        return true;
+    }
+
+    public void iniciarNovoDia() {
+        LocalDate dataAtual = LocalDate.now();
+        System.out.println("Iniciando novo dia!");
+        System.out.println("Hoje é dia " + dataAtual);
+        System.out.println("Voce agora pode usar as outras opcoes");
+        this.novoDia = true;
+    }
+
+    public void encerrarDia() {
+        this.novoDia = false;
+        System.out.println("Dia encerrado! Outras opcoes nao mais disponiveis");
+        System.out.println("Consultando faturamento do dia: ");
+        consultarFaturamento();
+    }
+
     public void exibirMenu() {
         int opcao = 0;
         do {
             System.out.println("Menu do Parque de Diversões:");
+            System.out.println("0. Iniciar novo dia");
             System.out.println("1. Cadastrar novo visitante");
             System.out.println("2. Listar visitantes cadastrados");
             System.out.println("3. Emitir novo ingresso");
@@ -20,42 +46,62 @@ public class Sistema {
             System.out.println("5. Localizar visitante");
             System.out.println("6. Consultar faturamento");
             System.out.println("7. Consultar visitas por data");
-            System.out.println("8. Sair");
+            System.out.println("8. Encerrar dia");
+            System.out.println("9. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcao) {
+                case 0:
+                    iniciarNovoDia();
+                    break;
                 case 1:
-                    parque.cadastrarVisitante();
+                    if (novoDiaComecou()) {
+                        parque.cadastrarVisitante();
+                    }
                     break;
                 case 2:
-                    parque.listarVisitantes();
+                    if (novoDiaComecou()) {
+                        parque.listarVisitantes();
+                    }
                     break;
                 case 3:
-                    emitirIngresso();
+                    if (novoDiaComecou()) {
+                        emitirIngresso();
+                    }
                     break;
                 case 4:
-                    registrarVisitaAtracao();
+                    if (novoDiaComecou()) {
+                        registrarVisitaAtracao();
+                    }
                     break;
                 case 5:
-                    localizarVisitante();
+                    if (novoDiaComecou()) {
+                        localizarVisitante();
+                    }
                     break;
                 case 6:
-                    consultarFaturamento();
+                    if (novoDiaComecou()) {
+                        consultarFaturamento();
+                    }
                     break;
                 case 7:
-                    consultarVisitasPorData();
+                    if (novoDiaComecou()) {
+                        consultarVisitasPorData();
+                    }
                     break;
                 case 8:
+                    encerrarDia();
+                    break;
+                case 9:
                     System.out.println("Saindo do sistema...");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        } while (opcao != 8);
+        } while (opcao != 9);
     }
-
 
     private void emitirIngresso() {
         System.out.print("Nome do visitante: ");
