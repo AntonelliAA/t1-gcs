@@ -57,19 +57,29 @@ public class Sistema {
                     iniciarNovoDia();
                     break;
                 case 1:
-                    parque.cadastrarVisitante();
+                    if (novoDiaComecou()) {
+                        parque.cadastrarVisitante();
+                    }
                     break;
                 case 2:
-                    parque.listarVisitantes();
+                    if (novoDiaComecou()) {
+                        parque.listarVisitantes();
+                    }
                     break;
                 case 3:
-                    emitirIngresso();
+                    if (novoDiaComecou()) {
+                        emitirIngresso();
+                    }
                     break;
                 case 4:
-                    registrarVisitaAtracao();
+                    if (novoDiaComecou()) {
+                        registrarVisitaAtracao();
+                    }
                     break;
                 case 5:
-                    localizarVisitante();
+                    if (novoDiaComecou()) {
+                        localizarVisitante();
+                    }
                     break;
                 case 6:
                     consultarFaturamento();
