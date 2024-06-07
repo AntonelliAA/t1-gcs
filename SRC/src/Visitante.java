@@ -15,7 +15,7 @@ public abstract class Visitante {
 
 	private String telefone;
 
-	private ArrayList<Atracao> atracoesVisitadas;
+	private ArrayList<Atracao> atracoesVisitadas = new ArrayList<>();
 
 	private boolean temIngresso = false;
 

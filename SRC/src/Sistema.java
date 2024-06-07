@@ -168,6 +168,9 @@ public class Sistema {
     }
 
     private void consultarVisitasPorData() {
-        // Implementar a consulta de visitas por data
+        System.out.print("Data (dd/mm/aaaa): ");
+        String data = scanner.nextLine();
+        parque.consultarVisitasPorData(data);
     }
+
 }
