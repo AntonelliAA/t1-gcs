@@ -24,4 +24,11 @@ public class Adulto extends Visitante {
 		this.codigoIngresso = scanner.nextLine();
 	}
 
+	@Override
+	public void imprimirInformacoes() {
+		System.out.println("Nome: " + nome);
+		System.out.println("Código do ingresso: " + codigoIngresso);
+		System.out.println("Telefone: " + telefone);
+	}
+
 }

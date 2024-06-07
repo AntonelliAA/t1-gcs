@@ -26,7 +26,7 @@ public abstract class Visitante {
 
 	
 	public int GetIdade() {
-		return 2024 - Ano_nascimento;
+		return 2024 ;
     /**
 	 * calcula a idade baseado no ano de nascimento
 	 */
