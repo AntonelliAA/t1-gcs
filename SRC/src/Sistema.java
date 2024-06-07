@@ -70,7 +70,22 @@ public class Sistema {
     }
 
     private void registrarVisitaAtracao() {
-        // Implementar o registro de visita a uma atração
+        System.out.print("Nome do visitante: ");
+        String nome = scanner.nextLine();
+        Visitante visitante = parque.pesquisaVisitanteNome(nome);
+        if (visitante != null) {
+            System.out.print("Nome da atração: ");
+            String nomeAtracao = scanner.nextLine();
+            Atracao atracao = parque.pesquisaAtracao(nomeAtracao);
+            if (atracao != null) {
+                visitante.visitar(atracao);
+                System.out.println("Visita registrada com sucesso!");
+            } else {
+                System.out.println("Atração não encontrada.");
+            }
+        } else {
+            System.out.println("Visitante não encontrado.");
+        }
     }
 
     private void localizarVisitante() {
