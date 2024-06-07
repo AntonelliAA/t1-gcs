@@ -55,4 +55,10 @@ public abstract class Visitante {
 	public boolean isTemIngresso() {
         return false;
     }
+
+	public ArrayList<Atracao> getAtracoesVisitadas() {
+		return atracoes_visitadas;
+	}
+
+
 }

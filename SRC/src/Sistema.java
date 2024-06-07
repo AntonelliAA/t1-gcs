@@ -89,7 +89,26 @@ public class Sistema {
     }
 
     private void localizarVisitante() {
-        // Implementar a localização de um visitante
+        System.out.print("Nome do visitante ou número do ingresso: ");
+        String entrada = scanner.nextLine();
+        Visitante visitante = parque.pesquisaVisitanteNome(entrada);
+        if (visitante == null) {
+            try {
+                int numeroIngresso = Integer.parseInt(entrada);
+                visitante = parque.pesquisaVisitanteIngresso(numeroIngresso);
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida.");
+            }
+        }
+        if (visitante != null) {
+            System.out.println("Visitante encontrado: " + visitante);
+            System.out.println("Atrações visitadas:");
+            for (Atracao atracao : visitante.getAtracoesVisitadas()) {
+                System.out.println(atracao);
+            }
+        } else {
+            System.out.println("Visitante não encontrado.");
+        }
     }
 
     private void consultarFaturamento() {
