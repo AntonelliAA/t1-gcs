@@ -130,10 +130,10 @@ public class Parque {
 		Visitante novoVisitante = null;
 		switch (tipo) {
 			case 1: // Adulto
-				novoVisitante = new Adulto("a",1,"a");
+				novoVisitante = new Adulto();
 				break;
 			case 2: // Criança
-				novoVisitante = new Crianca("a",1,"a","a");
+				novoVisitante = new Crianca();
 				break;
 			default:
 				System.out.println("Tipo de visitante inválido.");

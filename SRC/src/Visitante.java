@@ -15,11 +15,7 @@ public abstract class Visitante {
 
 	private boolean temIngresso = false;
 
-	public Visitante(String nome, int anoNascimento, String telefone) {
-		this.nome = nome;
-		this.anoNascimento = anoNascimento;
-		this.telefone = telefone;
-	}
+
 	public void visitar(Atracao a){
 		atracoes_visitadas.add(a); //adicionar a atracao na lista de visitadas
 	}
