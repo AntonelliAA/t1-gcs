@@ -8,12 +8,6 @@ public class Main {
         Parque app = new Parque(500);
         Sistema sistema = new Sistema(app);
         sistema.exibirMenu();
-         /* Cadastrar e imprimir lista de 3 visitantes
-        for(int i = 0; i<3; i++){
-        app.cadastrarVisitante();
-        }
-        app.listarVisitantes();
-       */
         System.out.println();
         scan.close();
     }

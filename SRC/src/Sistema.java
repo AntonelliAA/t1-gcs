@@ -27,10 +27,10 @@ public class Sistema {
 
             switch (opcao) {
                 case 1:
-                    cadastrarVisitante();
+                    parque.cadastrarVisitante();
                     break;
                 case 2:
-                    listarVisitantes();
+                    parque.listarVisitantes();
                     break;
                 case 3:
                     emitirIngresso();
@@ -56,34 +56,6 @@ public class Sistema {
         } while (opcao != 8);
     }
 
-    private void cadastrarVisitante() {
-        System.out.print("Nome do visitante: ");
-        String nome = scanner.nextLine();
-        System.out.print("Ano de nascimento: ");
-        int anoNascimento = scanner.nextInt();
-        scanner.nextLine(); // Consumir a nova linha
-
-        if (2024 - anoNascimento < 12) {
-            System.out.print("Nome do responsável: ");
-            String nomeResponsavel = scanner.nextLine();
-            System.out.print("Telefone do responsável: ");
-            String telefoneResponsavel = scanner.nextLine();
-            scanner.nextLine(); // Consumir a nova linha
-            Crianca crianca = new Crianca(nome, anoNascimento, nomeResponsavel, telefoneResponsavel);
-            parque.adicionarVisitante(crianca);
-        } else {
-            System.out.print("Telefone: ");
-            String telefone = scanner.nextLine();
-            scanner.nextLine(); // Consumir a nova linha
-            Adulto adulto = new Adulto(nome, anoNascimento, telefone);
-            parque.adicionarVisitante(adulto);
-        }
-        System.out.println("Visitante cadastrado com sucesso!");
-    }
-
-    private void listarVisitantes() {
-        // Implementar a listagem de visitantes
-    }
 
     private void emitirIngresso() {
         // Implementar a emissão de novo ingresso
