@@ -12,6 +12,7 @@ public class Sistema {
 
     public boolean novoDiaComecou() {
         if (this.novoDia == false) {
+            System.out.println("Voce deve iniciar o dia para poder usar essa opçao!");
             return false;
         }
         return true;
