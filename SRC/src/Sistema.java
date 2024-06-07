@@ -58,7 +58,15 @@ public class Sistema {
 
 
     private void emitirIngresso() {
-        // Implementar a emissão de novo ingresso
+        System.out.print("Nome do visitante: ");
+        String nome = scanner.nextLine();
+        Visitante visitante = parque.pesquisaVisitanteNome(nome);
+        if (visitante != null) {
+            parque.emitirIngresso(visitante);
+            System.out.println("Ingresso emitido com sucesso!");
+        } else {
+            System.out.println("Visitante não encontrado.");
+        }
     }
 
     private void registrarVisitaAtracao() {
