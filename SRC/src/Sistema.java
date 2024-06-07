@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Sistema {
     private Parque parque;
@@ -19,13 +20,25 @@ public class Sistema {
     }
 
     public void iniciarNovoDia() {
+        LocalDate dataAtual = LocalDate.now();
+        System.out.println("Iniciando novo dia!");
+        System.out.println("Hoje é dia " + dataAtual);
+        System.out.println("Voce agora pode usar as outras opcoes");
+        this.novoDia = true;
+    }
 
+    public void encerrarDia() {
+        this.novoDia = false;
+        System.out.println("Dia encerrado! Outras opcoes nao mais disponiveis");
+        System.out.println("Consultando faturamento do dia: ");
+        consultarFaturamento();
     }
 
     public void exibirMenu() {
         int opcao = 0;
         do {
             System.out.println("Menu do Parque de Diversões:");
+            System.out.println("0. Iniciar novo dia");
             System.out.println("1. Cadastrar novo visitante");
             System.out.println("2. Listar visitantes cadastrados");
             System.out.println("3. Emitir novo ingresso");
@@ -40,6 +53,9 @@ public class Sistema {
             scanner.nextLine();
 
             switch (opcao) {
+                case 0:
+                    iniciarNovoDia();
+                    break;
                 case 1:
                     parque.cadastrarVisitante();
                     break;
@@ -62,12 +78,15 @@ public class Sistema {
                     consultarVisitasPorData();
                     break;
                 case 8:
+                    encerrarDia();
+                    break;
+                case 9:
                     System.out.println("Saindo do sistema...");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        } while (opcao != 8);
+        } while (opcao != 9);
     }
 
     private void emitirIngresso() {
