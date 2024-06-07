@@ -82,10 +82,14 @@ public class Sistema {
                     }
                     break;
                 case 6:
-                    consultarFaturamento();
+                    if (novoDiaComecou()) {
+                        consultarFaturamento();
+                    }
                     break;
                 case 7:
-                    consultarVisitasPorData();
+                    if (novoDiaComecou()) {
+                        consultarVisitasPorData();
+                    }
                     break;
                 case 8:
                     encerrarDia();
