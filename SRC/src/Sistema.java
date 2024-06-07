@@ -3,10 +3,22 @@ import java.util.Scanner;
 public class Sistema {
     private Parque parque;
     private Scanner scanner;
+    private boolean novoDia = false;
 
     public Sistema(Parque parque) {
         this.parque = parque;
         this.scanner = new Scanner(System.in);
+    }
+
+    public boolean novoDiaComecou() {
+        if (this.novoDia == false) {
+            return false;
+        }
+        return true;
+    }
+
+    public void iniciarNovoDia() {
+
     }
 
     public void exibirMenu() {
@@ -20,7 +32,8 @@ public class Sistema {
             System.out.println("5. Localizar visitante");
             System.out.println("6. Consultar faturamento");
             System.out.println("7. Consultar visitas por data");
-            System.out.println("8. Sair");
+            System.out.println("8. Encerrar dia");
+            System.out.println("9. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine();
@@ -55,7 +68,6 @@ public class Sistema {
             }
         } while (opcao != 8);
     }
-
 
     private void emitirIngresso() {
         System.out.print("Nome do visitante: ");
