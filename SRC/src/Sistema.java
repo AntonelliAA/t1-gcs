@@ -58,15 +58,57 @@ public class Sistema {
 
 
     private void emitirIngresso() {
-        // Implementar a emissão de novo ingresso
+        System.out.print("Nome do visitante: ");
+        String nome = scanner.nextLine();
+        Visitante visitante = parque.pesquisaVisitanteNome(nome);
+        if (visitante != null) {
+            parque.emitirIngresso(visitante);
+            System.out.println("Ingresso emitido com sucesso!");
+        } else {
+            System.out.println("Visitante não encontrado.");
+        }
     }
 
     private void registrarVisitaAtracao() {
-        // Implementar o registro de visita a uma atração
+        System.out.print("Nome do visitante: ");
+        String nome = scanner.nextLine();
+        Visitante visitante = parque.pesquisaVisitanteNome(nome);
+        if (visitante != null) {
+            System.out.print("Nome da atração: ");
+            String nomeAtracao = scanner.nextLine();
+            Atracao atracao = parque.pesquisaAtracao(nomeAtracao);
+            if (atracao != null) {
+                visitante.visitar(atracao);
+                System.out.println("Visita registrada com sucesso!");
+            } else {
+                System.out.println("Atração não encontrada.");
+            }
+        } else {
+            System.out.println("Visitante não encontrado.");
+        }
     }
 
     private void localizarVisitante() {
-        // Implementar a localização de um visitante
+        System.out.print("Nome do visitante ou número do ingresso: ");
+        String entrada = scanner.nextLine();
+        Visitante visitante = parque.pesquisaVisitanteNome(entrada);
+        if (visitante == null) {
+            try {
+                int numeroIngresso = Integer.parseInt(entrada);
+                visitante = parque.pesquisaVisitanteIngresso(numeroIngresso);
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida.");
+            }
+        }
+        if (visitante != null) {
+            System.out.println("Visitante encontrado: " + visitante);
+            System.out.println("Atrações visitadas:");
+            for (Atracao atracao : visitante.getAtracoesVisitadas()) {
+                System.out.println(atracao);
+            }
+        } else {
+            System.out.println("Visitante não encontrado.");
+        }
     }
 
     private void consultarFaturamento() {

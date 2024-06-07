@@ -40,8 +40,6 @@ class Crianca extends Visitante {
 		this.nome = scanner.nextLine();
 		System.out.println("Digite o nome do responsável: ");
 		this.nomeResponsavel = scanner.nextLine();
-		System.out.println("Digite o código do ingresso: ");
-		this.codigoIngresso = scanner.nextLine();
 		System.out.println("Digite o telefone do responsável: ");
 		this.telefoneResponsavel = scanner.nextLine();
 	}

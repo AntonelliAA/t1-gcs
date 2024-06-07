@@ -13,6 +13,17 @@ public class Parque {
 	private boolean isClosed;
 	private int lastSeqIngresso;
 	private int ingressosPorDia;
+
+	public Atracao pesquisaAtracao(String nome) {
+		for (Atracao atracao : atracoes) {
+			if (atracao.getNome().equalsIgnoreCase(nome)) {
+				return atracao;
+			}
+		}
+		return null;
+	}
+
+
 	private class Dia {
 		private int mes;
 		private int dia;
