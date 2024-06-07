@@ -2,6 +2,10 @@
 import java.util.ArrayList;
 
 public abstract class Visitante {
+	public Visitante(String nome, int anoNascimento) {
+		this.nome = nome;
+		this.anoNascimento = anoNascimento;
+	}
 
 	private String nome;
 

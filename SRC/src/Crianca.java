@@ -6,7 +6,12 @@ class Crianca extends Visitante {
 
 	private String nome;
 
-
+	public Crianca(String nome, int anoNascimento, String nomeResponsavel, String telefoneResponsavel, String nome1) {
+		super(nome, anoNascimento);
+		this.nomeResponsavel = nomeResponsavel;
+		this.telefoneResponsavel = telefoneResponsavel;
+		this.nome = nome1;
+	}
 
 	public String getCodigoIngresso() {
 		return codigoIngresso;

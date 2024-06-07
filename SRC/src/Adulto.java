@@ -6,7 +6,11 @@ public class Adulto extends Visitante {
 	private String codigoIngresso;
 	private String telefone;
 
-
+	public Adulto(String nome, int anoNascimento, String nome1, String telefone) {
+		super(nome, anoNascimento);
+		this.nome = nome1;
+		this.telefone = telefone;
+	}
 
 	public double CalculaPreco() {
 		return 0;
