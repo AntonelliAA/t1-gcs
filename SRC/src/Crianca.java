@@ -6,11 +6,11 @@ class Crianca extends Visitante {
 
 	private String nome;
 
-	public Crianca(String nome, int anoNascimento, String nomeResponsavel, String telefoneResponsavel, String nome1) {
+	public Crianca(String nome, int anoNascimento, String nomeResponsavel, String telefoneResponsavel) {
 		super(nome, anoNascimento);
 		this.nomeResponsavel = nomeResponsavel;
 		this.telefoneResponsavel = telefoneResponsavel;
-		this.nome = nome1;
+
 	}
 
 	public String getCodigoIngresso() {
@@ -39,30 +39,15 @@ class Crianca extends Visitante {
 				'}';
 	}
 
-	public void definirInformacoesEspecificas() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Digite o nome da criança: ");
-		this.nome = scanner.nextLine();
-		System.out.println("Digite o nome do responsável: ");
-		this.nomeResponsavel = scanner.nextLine();
-		System.out.println("Digite o telefone do responsável: ");
-		this.telefoneResponsavel = scanner.nextLine();
-	}
-
 
 	public void imprimirInformacoes() {
-		System.out.println("Nome da criança: " + nome);
-		System.out.println("Nome do responsável: " + nomeResponsavel);
-		System.out.println("Código do ingresso: " + codigoIngresso);
-		System.out.println("Telefone do responsável: " + telefoneResponsavel);
+		System.out.println("Nome da criança: " + getNome());
+		System.out.println("Ano de Nascimento: " + getAnoNascimento());
+		System.out.println("Nome do responsável: " + getNomeResponsavel());
+		System.out.println("Código do ingresso: " + "codigoIngresso");
+		System.out.println("Telefone do responsável: " + getTelefoneResponsavel());
 	}
 
-	public int getAnoNascimento() {
-        return 0;
-    }
 
-	public String getNome() {
-		return nomeResponsavel;
-	}
 
 }

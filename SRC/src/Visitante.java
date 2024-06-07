@@ -5,7 +5,7 @@ public abstract class Visitante {
 	public Visitante(String nome, int anoNascimento) {
 		this.nome = nome;
 		this.anoNascimento = anoNascimento;
-	}
+    }
 
 	private String nome;
 
@@ -15,13 +15,13 @@ public abstract class Visitante {
 
 	private String telefone;
 
-	private ArrayList<Atracao> atracoes_visitadas;
+	private ArrayList<Atracao> atracoesVisitadas;
 
 	private boolean temIngresso = false;
 
 
 	public void visitar(Atracao a){
-		atracoes_visitadas.add(a); //adicionar a atracao na lista de visitadas
+		atracoesVisitadas.add(a); //adicionar a atracao na lista de visitadas
 	}
 
 	
@@ -36,24 +36,20 @@ public abstract class Visitante {
 		this.temIngresso = temIngresso;
 	}
 
-	@Override
-	public String toString() {
-		return "Visitante{" +
-				"nome='" + nome + '\'' +
-				", anoNascimento=" + anoNascimento +
-				", telefone='" + telefone + '\'' +
-				'}';
+
+	private String getTelefone() {
+		return telefone;
 	}
 
 	public int getAnoNascimento() {
 		return anoNascimento;
 	}
 
-	public Object getNome() {
+	public String getNome() {
 		return nome;
 	}
 
-	public abstract void definirInformacoesEspecificas();
+
 	public abstract void imprimirInformacoes();
 
 	public boolean isTemIngresso() {
@@ -61,7 +57,7 @@ public abstract class Visitante {
     }
 
 	public ArrayList<Atracao> getAtracoesVisitadas() {
-		return atracoes_visitadas;
+		return atracoesVisitadas;
 	}
 
 

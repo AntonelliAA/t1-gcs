@@ -129,6 +129,12 @@ public class Parque {
 	}
 
 	public void cadastrarVisitante() {
+		String nome;
+		String nomeResponsavel;
+		String telefone = "0";
+		String telefoneResponsavel = "0";
+		int anoNascimento;
+
 		if (visitantes == null) {
 			visitantes = new ArrayList<>();
 		}
@@ -141,23 +147,35 @@ public class Parque {
 		Visitante novoVisitante = null;
 		switch (tipo) {
 			case 1: // Adulto
-				novoVisitante = new Adulto();
+				System.out.println("Digite o nome: ");
+				nome = scanner.nextLine();
+				System.out.println("Digite o telefone: ");
+				telefone = scanner.nextLine();
+				System.out.println("Digite o ano de nascimento: ");
+				anoNascimento = scanner.nextInt();
+				scanner.nextLine();
+				novoVisitante = new Adulto(nome, anoNascimento, telefone);
 				break;
 			case 2: // Criança
-				novoVisitante = new Crianca();
+				System.out.println("Digite o nome da criança: ");
+				nome = scanner.nextLine();
+				System.out.println("Digite o nome do responsável: ");
+				nomeResponsavel = scanner.nextLine();
+				System.out.println("Digite o ano de nascimento: ");
+				anoNascimento = scanner.nextInt();
+				scanner.nextLine();
+				System.out.println("Digite o telefone do responsável: ");
+				telefoneResponsavel = scanner.nextLine();
+				novoVisitante = new Crianca(nome, anoNascimento, nomeResponsavel, telefoneResponsavel);
 				break;
 			default:
 				System.out.println("Tipo de visitante inválido.");
 				return;
 		}
 
-		// Chamando o método para definir informações específicas do visitante
-		novoVisitante.definirInformacoesEspecificas();
-
 		// Adicionando o novo visitante à lista
 		visitantes.add(novoVisitante);
 	}
-
 
 
 	public void listarVisitantes() {
