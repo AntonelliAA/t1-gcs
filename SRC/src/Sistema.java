@@ -1,9 +1,16 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.time.LocalDate;
 
 public class Sistema {
     private Parque parque;
     private Scanner scanner;
+    private LocalDate dataAtual;
+    private Map<LocalDate,Parque> calendario = new HashMap<>();; //mapeia dias do funcionamento do parque
+  //contem uma copia do parque ao final do dia, para poder ver quantas vezes foram visitadas
+
     private boolean novoDia = false;
 
     public Sistema(Parque parque) {
@@ -20,7 +27,7 @@ public class Sistema {
     }
 
     public void iniciarNovoDia() {
-        LocalDate dataAtual = LocalDate.now();
+        dataAtual = LocalDate.now();
         System.out.println("Iniciando novo dia!");
         System.out.println("Hoje é dia " + dataAtual);
         System.out.println("Voce agora pode usar as outras opcoes");
@@ -32,6 +39,8 @@ public class Sistema {
         System.out.println("Dia encerrado! Outras opcoes nao mais disponiveis");
         System.out.println("Consultando faturamento do dia: ");
         consultarFaturamento();
+        calendario.put(dataAtual, parque);// adicionado o estado do parque ao final do dia, e reseta-lo
+        parque.reset_diario(); // zeradas as visitas e visitantes
     }
 
     public void exibirMenu() {
@@ -167,7 +176,12 @@ public class Sistema {
         System.out.println("Faturamento do mês " + mes + "/" + ano + ": R$ " + faturamento);
     }
 
-    private void consultarVisitasPorData() {
-        // Implementar a consulta de visitas por data
+    private void consultarVisitasPorData(LocalDate data_consulta) {
+        Parque estado_passado = calendario.get(data_consulta);
+        for (Atracao a : estado_passado.atracoes){ //ja estão ordenadas
+            System.out.println("Nome: "+ a.getNome() + "Visitas: " + a.getVisitas());
+        }
+
     }
+
 }

@@ -15,13 +15,15 @@ public abstract class Visitante {
 
 	private String telefone;
 
-	private ArrayList<Atracao> atracoesVisitadas;
+	private ArrayList<Atracao> atracoesVisitadas = new ArrayList<>();
 
 	private boolean temIngresso = false;
 
 
 	public void visitar(Atracao a){
-		atracoesVisitadas.add(a); //adicionar a atracao na lista de visitadas
+		atracoesVisitadas.add(a);//adicionar a atracao na lista de visitadas
+		a.incrVisistas();//incrementa o contador de visitas na artacao, possivelmente separando entre visistas de crianças e adultos
+
 	}
 
 	

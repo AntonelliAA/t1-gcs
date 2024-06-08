@@ -1,19 +1,24 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 import java.time.LocalDate;
 import java.time.YearMonth;
-
 
 public class Parque {
 
 	private ArrayList <Visitante> visitantes;
-	private ArrayList <Atracao> atracoes;
+	ArrayList <Atracao> atracoes;
 	private ArrayList<Ingresso> ingressos;
 	private ArrayList <Dia> dias;
 	private boolean isClosed;
 	private int lastSeqIngresso;
 	private int ingressosPorDia;
 
+	public void reset_diario(){
+		atracoes.sort(Comparator.comparing(Atracao::getVisitas));//deixa as atracoes em ordem de mais visistadas, para facilitar depois
+		for (Atracao a : atracoes){ //novo dia começa com todas atracoes sem visitas
+			a.setVisitas(0);
+		}
+		visitantes.clear(); // remove todos visitantes do dia anteiror
+	}
 	public Atracao pesquisaAtracao(String nome) {
 		for (Atracao atracao : atracoes) {
 			if (atracao.getNome().equalsIgnoreCase(nome)) {
@@ -30,7 +35,6 @@ public class Parque {
 		private int ingCrianca;
 		private int ingAdulto;
 		private double valorTotal;
-
 		Dia(int mes, int dia){
 			this.mes = mes;
 			this.dia = dia;
@@ -187,6 +191,65 @@ public class Parque {
 				System.out.println("==========================================");
 				visitante.imprimirInformacoes();
 			}
+		}
+	}
+
+	// Método para consultar visitas por data
+	public void consultarVisitasPorData(String data) {
+		LocalDate dataConsulta = LocalDate.parse(data);
+		int[] visitasPorAtracao = new int[atracoes.size()];
+
+		// Conta as visitas para cada atração na data especificada
+		for (Ingresso ingresso : ingressos) {
+			if (ingresso.getData().equals(dataConsulta)) {
+				Visitante visitante = ingresso.getVisitante();
+				for (Atracao atracao : visitante.getAtracoesVisitadas()) {
+					for (int i = 0; i < atracoes.size(); i++) {
+						if (atracoes.get(i).getNome().equalsIgnoreCase(atracao.getNome())) {
+							visitasPorAtracao[i]++;
+						}
+					}
+				}
+			}
+		}
+
+		// Cria uma lista de pares (nome da atração, número de visitas) para ordenar
+		List<AtracaoVisitas> listaVisitas = new ArrayList<>();
+		for (int i = 0; i < atracoes.size(); i++) {
+			listaVisitas.add(new AtracaoVisitas(atracoes.get(i).getNome(), visitasPorAtracao[i]));
+		}
+
+		// Ordena a lista pela quantidade de visitas
+		Collections.sort(listaVisitas, new Comparator<AtracaoVisitas>() {
+			@Override
+			public int compare(AtracaoVisitas av1, AtracaoVisitas av2) {
+				return Integer.compare(av2.getVisitas(), av1.getVisitas());
+			}
+		});
+
+		// Exibe as visitas por atração
+		System.out.println("Visitas por atração na data " + data + ":");
+		for (AtracaoVisitas av : listaVisitas) {
+			System.out.println(av.getNomeAtracao() + ": " + av.getVisitas() + " visitas");
+		}
+	}
+
+	// Classe auxiliar para armazenar o nome da atração e o número de visitas
+	private class AtracaoVisitas {
+		private String nomeAtracao;
+		private int visitas;
+
+		public AtracaoVisitas(String nome, int visitas) {
+			this.nomeAtracao = nome;
+			this.visitas = visitas;
+		}
+
+		public String getNomeAtracao() {
+			return nomeAtracao;
+		}
+
+		public int getVisitas() {
+			return visitas;
 		}
 	}
 
