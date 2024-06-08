@@ -1,18 +1,20 @@
 public class Atracao {
     private String nome;
     private int capacidade;
-    private int visistas;
+    private int visitas;
 
     public Atracao(String nome, int capacidade) {
         this.nome = nome;
         this.capacidade = capacidade;
-        visistas = 0;
+        visitas = 0;
 
 
     }
-
+    public void setVisitas(int v){
+        visitas =v;
+    }
     public void incrVisistas() {
-        visistas++;
+        visitas++;
     }
 
     public String getNome() {
@@ -29,6 +31,10 @@ public class Atracao {
 
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
+    }
+
+    public int getVisitas() {
+        return visitas;
     }
 
 

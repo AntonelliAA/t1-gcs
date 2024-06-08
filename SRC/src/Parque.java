@@ -2,17 +2,23 @@ import java.util.*;
 import java.time.LocalDate;
 import java.time.YearMonth;
 
-
 public class Parque {
 
 	private ArrayList <Visitante> visitantes;
-	private ArrayList <Atracao> atracoes;
+	ArrayList <Atracao> atracoes;
 	private ArrayList<Ingresso> ingressos;
 	private ArrayList <Dia> dias;
 	private boolean isClosed;
 	private int lastSeqIngresso;
 	private int ingressosPorDia;
 
+	public void reset_diario(){
+		atracoes.sort(Comparator.comparing(Atracao::getVisitas));//deixa as atracoes em ordem de mais visistadas, para facilitar depois
+		for (Atracao a : atracoes){ //novo dia começa com todas atracoes sem visitas
+			a.setVisitas(0);
+		}
+		visitantes.clear(); // remove todos visitantes do dia anteiror
+	}
 	public Atracao pesquisaAtracao(String nome) {
 		for (Atracao atracao : atracoes) {
 			if (atracao.getNome().equalsIgnoreCase(nome)) {
@@ -29,7 +35,6 @@ public class Parque {
 		private int ingCrianca;
 		private int ingAdulto;
 		private double valorTotal;
-
 		Dia(int mes, int dia){
 			this.mes = mes;
 			this.dia = dia;
