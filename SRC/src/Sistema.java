@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.time.LocalDate;
 
 public class Sistema {
@@ -97,7 +94,7 @@ public class Sistema {
                     break;
                 case 7:
                     if (novoDiaComecou()) {
-                        consultarVisitasPorData();
+                        consultarVisitasPorData(dataAtual);
                     }
                     break;
                 case 8:

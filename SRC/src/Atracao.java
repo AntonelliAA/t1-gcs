@@ -10,9 +10,11 @@ public class Atracao {
 
 
     }
-    public void setVisitas(int v){
-        visitas =v;
+
+    public void setVisitas(int v) {
+        visitas = v;
     }
+
     public void incrVisistas() {
         visitas++;
     }
@@ -36,5 +38,7 @@ public class Atracao {
     public int getVisitas() {
         return visitas;
     }
+
+}
 
 
